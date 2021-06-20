@@ -17,6 +17,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   List <String> _data = [];
   TextEditingController messageTextBox = TextEditingController();
   final _controller = ScrollController();
+  bool _recommend = false;
+  List<String> _answer = [];
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,35 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   void handleRequest()
   {
     this.insertSingleItem(messageTextBox.text);
-    this.insertSingleItem(checkQuestion(messageTextBox.text) + "<bot>");
+
+    if(_recommend){
+      if(messageTextBox.text == "نعم")
+      {
+        for(int i = 1; i < _answer.length; i++){
+          this.insertSingleItem(_answer[i] + "<bot>");
+        }
+      }
+      else
+      {
+        this.insertSingleItem("اذا ما هي المشكلة؟" + "<bot>");
+      }
+      _recommend = false;
+    }
+    else{
+      _answer = checkQuestion(messageTextBox.text);
+      if(_answer[0].startsWith("هل تقصد"))
+      {
+        _recommend = true;
+        this.insertSingleItem(_answer[0] + "<bot>");
+      }
+      else
+      {
+        for(int i = 0; i < _answer.length; i++){
+        this.insertSingleItem(_answer[i] + "<bot>");
+        }
+      }
+    }
+    
     messageTextBox.clear();
   }
 
@@ -128,7 +158,7 @@ Widget buildItem(String item, int index, Animation animation)
           shadowColor: Color(0xFFFFCB05),
           elevation: 2,
           color: Colors.grey[200],
-          padding: BubbleEdges.all(5),
+          padding: BubbleEdges.only(bottom: 5, top: 5, right: 20, left: 10),
           margin: mine ? BubbleEdges.only(right: 50, left: 10) : BubbleEdges.only(right: 10, left: 50)
         ),
       ),
