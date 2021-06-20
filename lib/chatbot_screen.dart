@@ -1,8 +1,8 @@
 // @dart=2.9
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
+import 'database.dart';
 
 class ChatBotScreen extends StatefulWidget {
   const ChatBotScreen({ Key key }) : super(key: key);
@@ -16,7 +16,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   List <String> _data = [];
   TextEditingController messageTextBox = TextEditingController();
-
+  final _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +32,14 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
       body: Stack(
         children: <Widget>[
           AnimatedList(
+            controller: _controller,
             key: _listKey,
             initialItemCount: _data.length,
             itemBuilder: 
               (BuildContext context, int index, animation){
                 return buildItem(_data[index], index, animation);
             },
+            padding: EdgeInsets.only(bottom: 60),
           ),
 
           /**  Message Textbox and Sending Icon **/
@@ -58,7 +60,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                         color: Color(0xFF00A99D), // Send Icon Color
                         iconSize: 30,
                         onPressed: (){
-                          this.handleRequest();
+                          if(messageTextBox.text.length > 0)
+                            this.handleRequest();
                         },
                       ),
                       hintText: "ما هي مشكلتك؟",
@@ -68,7 +71,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                     controller: messageTextBox, // Take the text inputed
                     textInputAction: TextInputAction.send, 
                     onSubmitted: (message){
-                      this.handleRequest();
+                      if(messageTextBox.text.length > 0)
+                        this.handleRequest();
                     },
                   ),
                 ),
@@ -85,7 +89,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   void handleRequest()
   {
     this.insertSingleItem(messageTextBox.text);
-
+    this.insertSingleItem(checkQuestion(messageTextBox.text) + "<bot>");
     messageTextBox.clear();
   }
 
@@ -93,11 +97,13 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   /***        insertSingleItem        ***/
   void insertSingleItem(String message)
   {
-    if(message.length > 0) 
-    {
-      _data.add(message);
-      _listKey.currentState.insertItem(_data.length - 1);
-    }
+    _data.add(message);
+    _listKey.currentState.insertItem(_data.length - 1);
+    _controller.animateTo(
+      _controller.position.maxScrollExtent,
+      duration: Duration(seconds: 1),
+      curve: Curves.fastOutSlowIn,
+    );
   }
 }
 
@@ -123,7 +129,7 @@ Widget buildItem(String item, int index, Animation animation)
           elevation: 2,
           color: Colors.grey[200],
           padding: BubbleEdges.all(5),
-          margin: BubbleEdges.only(right: 10, left: 10)
+          margin: mine ? BubbleEdges.only(right: 50, left: 10) : BubbleEdges.only(right: 10, left: 50)
         ),
       ),
     )
