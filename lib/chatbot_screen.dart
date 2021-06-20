@@ -1,9 +1,10 @@
-import 'dart:ui';
+// @dart=2.9
 
 import 'package:flutter/material.dart';
+import 'package:bubble/bubble.dart';
 
 class ChatBotScreen extends StatefulWidget {
-  const ChatBotScreen({ Key? key }) : super(key: key);
+  const ChatBotScreen({ Key key }) : super(key: key);
 
   @override
   _ChatBotScreenState createState() => _ChatBotScreenState();
@@ -11,7 +12,7 @@ class ChatBotScreen extends StatefulWidget {
 
 class _ChatBotScreenState extends State<ChatBotScreen> {
   // Class Properties
-  final GlobalKey<AnimatedListState> _listKey = GlobalKey();
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   List <String> _data = [];
   TextEditingController messageTextBox = TextEditingController();
 
@@ -33,8 +34,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
             key: _listKey,
             initialItemCount: _data.length,
             itemBuilder: 
-              (BuildContext context, int index, Animation animation){
-                return widget; //buildItem(_data[index], index, animation);
+              (BuildContext context, int index, animation){
+                return buildItem(_data[index], index, animation);
             },
           ),
 
@@ -48,6 +49,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: TextField(
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.message,
@@ -56,6 +58,11 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                       hintText: "ما هي مشكلتك؟",
                       fillColor: Colors.white12,
                     ),
+                    controller: messageTextBox, // Take the text inputed
+                    textInputAction: TextInputAction.send, 
+                    onSubmitted: (message){
+                      this.insertSingleItem(messageTextBox.text);
+                    },
                   ),
                 ),
               ),
@@ -65,11 +72,39 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
       ),
     );
   }
+
+
+  // insertSingleItem
+  void insertSingleItem(String message){
+    if(message.length > 0){
+      _data.add(message);
+      _listKey.currentState.insertItem(_data.length - 1);
+    }
+  }
 }
 
 
 
+// ignore: slash_for_doc_comments
 /***      Function for building Item Widget      ***/
-//Widget buildItem(String item, int index, Animation animation){
-  
-//}
+
+Widget buildItem(String item, int index, Animation<double> animation){
+  bool mine = item.endsWith("<bot>");
+  return SizeTransition(
+    sizeFactor: animation,
+    child: Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Container(
+        alignment: mine ? Alignment.topLeft : Alignment.topRight, 
+        child: Bubble(
+          child: Text(
+            item.replaceAll("<bot", ""),
+            style: TextStyle(color: mine ? Colors.white : Colors.black),
+          ),
+          color: mine ? Colors.blue : Colors.grey[200],
+          padding: BubbleEdges.all(10),
+        ),
+      ),
+    )
+    );
+}
