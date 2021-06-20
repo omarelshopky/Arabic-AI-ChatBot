@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
+import 'chatbot_screen.dart';
 
+// ignore: slash_for_doc_comments
 /***      Entry Point for the App     ***/
 void main() => runApp(MyApp());
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "ChatBot",
-      home: HomeScreen(),
+      home: ChatBotScreen(),
     );
   }
 }
