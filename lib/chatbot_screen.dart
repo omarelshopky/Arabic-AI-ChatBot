@@ -1,5 +1,6 @@
 // @dart=2.9
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
 
@@ -49,13 +50,19 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: TextField(
-                    style: TextStyle(color: Colors.black),
+                    textAlign: TextAlign.right,
+                    style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
                     decoration: InputDecoration(
-                      icon: Icon(
-                        Icons.message,
-                        color: Color(0xFF00A99D) // Send Icon Color
+                      icon: IconButton(
+                        icon: Icon(Icons.message),
+                        color: Color(0xFF00A99D), // Send Icon Color
+                        iconSize: 30,
+                        onPressed: (){
+                          this.handleRequest();
+                        },
                       ),
                       hintText: "ما هي مشكلتك؟",
+                      hintTextDirection: TextDirection.rtl,
                       fillColor: Colors.white12,
                     ),
                     controller: messageTextBox, // Take the text inputed
@@ -75,16 +82,19 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
 
 
   /***      Handle what happend when take message from user       ***/
-  void handleRequest(){
+  void handleRequest()
+  {
     this.insertSingleItem(messageTextBox.text);
 
     messageTextBox.clear();
   }
 
 
-  // insertSingleItem
-  void insertSingleItem(String message){
-    if(message.length > 0){
+  /***        insertSingleItem        ***/
+  void insertSingleItem(String message)
+  {
+    if(message.length > 0) 
+    {
       _data.add(message);
       _listKey.currentState.insertItem(_data.length - 1);
     }
@@ -94,8 +104,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
 
 
 /***      Function for building Item Widget (Message Bubble)     ***/
-
-Widget buildItem(String item, int index, Animation<double> animation)
+Widget buildItem(String item, int index, Animation animation)
 {
   bool mine = item.endsWith("<bot>"); // Check Who send this message
   return SizeTransition(
@@ -107,7 +116,7 @@ Widget buildItem(String item, int index, Animation<double> animation)
         child: Bubble(
           child: Text(
             item.replaceAll("<bot>", ""),
-            style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),
           ),
           nip: mine ? BubbleNip.leftTop : BubbleNip.rightTop,
           shadowColor: Color(0xFFFFCB05),
