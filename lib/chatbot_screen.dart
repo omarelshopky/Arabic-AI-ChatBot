@@ -61,7 +61,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                     controller: messageTextBox, // Take the text inputed
                     textInputAction: TextInputAction.send, 
                     onSubmitted: (message){
-                      this.insertSingleItem(messageTextBox.text);
+                      this.handleRequest();
                     },
                   ),
                 ),
@@ -71,6 +71,14 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         ],
       ),
     );
+  }
+
+
+  /***      Handle what happend when take message from user       ***/
+  void handleRequest(){
+    this.insertSingleItem(messageTextBox.text);
+
+    messageTextBox.clear();
   }
 
 
@@ -85,24 +93,28 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
 
 
 
-// ignore: slash_for_doc_comments
-/***      Function for building Item Widget      ***/
+/***      Function for building Item Widget (Message Bubble)     ***/
 
-Widget buildItem(String item, int index, Animation<double> animation){
-  bool mine = item.endsWith("<bot>");
+Widget buildItem(String item, int index, Animation<double> animation)
+{
+  bool mine = item.endsWith("<bot>"); // Check Who send this message
   return SizeTransition(
     sizeFactor: animation,
     child: Padding(
-      padding: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: 5, bottom: 5),
       child: Container(
         alignment: mine ? Alignment.topLeft : Alignment.topRight, 
         child: Bubble(
           child: Text(
-            item.replaceAll("<bot", ""),
-            style: TextStyle(color: mine ? Colors.white : Colors.black),
+            item.replaceAll("<bot>", ""),
+            style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          color: mine ? Colors.blue : Colors.grey[200],
-          padding: BubbleEdges.all(10),
+          nip: mine ? BubbleNip.leftTop : BubbleNip.rightTop,
+          shadowColor: Color(0xFFFFCB05),
+          elevation: 2,
+          color: Colors.grey[200],
+          padding: BubbleEdges.all(5),
+          margin: BubbleEdges.only(right: 10, left: 10)
         ),
       ),
     )
