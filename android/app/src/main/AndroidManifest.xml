@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.arabic_chatbot">
    <application
-        android:label="arabic_chatbot"
+        android:label="Fixy Chat"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
