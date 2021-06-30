@@ -40,7 +40,15 @@ class _InfoScreenState extends State<InfoScreen> {
           Container(
             margin: EdgeInsets.only(top: 10, left: 7, right: 7),
             child: GroovinExpansionTile(
-              title: Text('Name'),
+              title: Text(
+                'Name',
+                style: TextStyle(
+                    fontSize: 22, 
+                    fontWeight: FontWeight.bold,
+                    fontFamily: ArabicFonts.Changa,
+                    package: 'google_fonts_arabic',
+                ),
+              ),
               boxDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
                 boxShadow: [
@@ -59,14 +67,29 @@ class _InfoScreenState extends State<InfoScreen> {
                 ],
               ),
               children: [
-                Text('omar hesham ali')
+                Text(
+                  'Omar Hesham Elshopky',
+                  style: TextStyle(
+                    fontSize: 20, 
+                    fontFamily: ArabicFonts.Changa,
+                    package: 'google_fonts_arabic',
+                  ),
+                )
               ],
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 10, left: 7, right: 7),
             child: GroovinExpansionTile(
-              title: Text('sososo'),
+              title: Text(
+                'youyyyyyo',
+                style: TextStyle(
+                    fontSize: 22, 
+                    fontWeight: FontWeight.bold,
+                    fontFamily: ArabicFonts.Changa,
+                    package: 'google_fonts_arabic',
+                ),
+              ),
               boxDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
                 boxShadow: [
@@ -85,7 +108,14 @@ class _InfoScreenState extends State<InfoScreen> {
                 ],
               ),
               children: [
-                Text('tot')
+                Text(
+                  'tot',
+                  style: TextStyle(
+                    fontSize: 20, 
+                    fontFamily: ArabicFonts.Changa,
+                    package: 'google_fonts_arabic',
+                  ),
+                ),
               ],
             ),
           )
