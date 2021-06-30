@@ -37,7 +37,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               Row( // First Row
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: sy(25), left: sx(40), right: sx(15)),
+                    margin: EdgeInsets.only(top: sy(15), left: sx(40), right: sx(15)),
                     child: Column(
                       children: [
                         OutlinedButton(
@@ -61,13 +61,19 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           ),
                         ),
                         Text(
-                          'CPU'
+                          'CPU',
+                          style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ArabicFonts.Changa,
+                            package: 'google_fonts_arabic',
+                          ),
                         )
                       ],
                     )
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: sy(25), left: sx(15)),
+                    margin: EdgeInsets.only(top: sy(15), left: sx(15)),
                     child: Column(
                       children: [
                         OutlinedButton(
@@ -91,13 +97,172 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           ),
                         ),
                         Text(
-                          'Mother Board'
+                          'Mother Board',
+                          style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ArabicFonts.Changa,
+                            package: 'google_fonts_arabic',
+                          ),
                         )
                       ],
                     )
                   )
                 ],
-              )
+              ),
+              Row( // Second Row
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: sy(15), left: sx(40), right: sx(15)),
+                    child: Column(
+                      children: [
+                        OutlinedButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                            );
+                          },
+                          child: Container(
+                            child: Image.asset(
+                              "images/ram.png",
+                              width: sx(170),
+                              height: sy(100),
+                            )
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.white,
+                            side: BorderSide(color: Colors.black, width: 0.7),
+                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                          ),
+                        ),
+                        Text(
+                          'RAM',
+                          style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ArabicFonts.Changa,
+                            package: 'google_fonts_arabic',
+                          ),
+                        )
+                      ],
+                    )
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: sy(15), left: sx(15)),
+                    child: Column(
+                      children: [
+                        OutlinedButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                            );
+                          },
+                          child: Container(
+                            child: Image.asset(
+                              "images/powerSupply.png",
+                              width: sx(170),
+                              height: sy(100),
+                            )
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.white,
+                            side: BorderSide(color: Colors.black, width: 0.7),
+                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                          ),
+                        ),
+                        Text(
+                          'Power Supply',
+                          style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ArabicFonts.Changa,
+                            package: 'google_fonts_arabic',
+                          ),
+                        )
+                      ],
+                    )
+                  )
+                ],
+              ),
+              Row( // Third Row
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: sy(15), left: sx(40), right: sx(15)),
+                    child: Column(
+                      children: [
+                        OutlinedButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                            );
+                          },
+                          child: Container(
+                            child: Image.asset(
+                              "images/computerCase.png",
+                              width: sx(170),
+                              height: sy(100),
+                            )
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.white,
+                            side: BorderSide(color: Colors.black, width: 0.7),
+                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                          ),
+                        ),
+                        Text(
+                          'Computer Case',
+                          style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ArabicFonts.Changa,
+                            package: 'google_fonts_arabic',
+                          ),
+                        )
+                      ],
+                    )
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: sy(15), left: sx(15)),
+                    child: Column(
+                      children: [
+                        OutlinedButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                            );
+                          },
+                          child: Container(
+                            child: Image.asset(
+                              "images/ioUnits.png",
+                              width: sx(170),
+                              height: sy(100),
+                            )
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.white,
+                            side: BorderSide(color: Colors.black, width: 0.7),
+                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                          ),
+                        ),
+                        Text(
+                          'I/O Units',
+                          style: TextStyle(
+                            fontSize: 20, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ArabicFonts.Changa,
+                            package: 'google_fonts_arabic',
+                          ),
+                        )
+                      ],
+                    )
+                  )
+                ],
+              ),
+              
             ],
           );
         },
