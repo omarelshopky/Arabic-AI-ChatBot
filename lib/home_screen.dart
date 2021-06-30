@@ -1,10 +1,12 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:relative_scale/relative_scale.dart';
 import 'package:google_fonts_arabic/fonts.dart';
 import 'chatbot_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({ Key? key }) : super(key: key);
+  const HomeScreen({ Key key }) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -33,14 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: EdgeInsets.only(top: sy(70)),
                   child: Image.asset(
                     "images/logo.png",
-                    width: sx(320),
-                    height: sy(320),
+                    width: sx(270),
+                    height: sy(270),
                   )
                 );
               },
             ),
             Container(
-              margin: EdgeInsets.only(top: 40),
+              margin: EdgeInsets.only(top: 120),
               child: OutlinedButton(
                 onPressed: (){
                   Navigator.push(
@@ -49,13 +51,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 child: Container(
-                  padding: EdgeInsets.only(top: 5, bottom: 5, right: 27, left: 27),
+                  padding: EdgeInsets.only(top: 2, bottom: 2, right: 22, left: 22),
                   child: Text(
                     'دخول',
                     style: TextStyle(
-                      fontFamily: ArabicFonts.Lemonada,
+                      fontFamily: ArabicFonts.El_Messiri,
                       package: 'google_fonts_arabic',
-                      fontSize: 26,
+                      fontSize: 24,
                     ),
                   ),
                 ),
