@@ -14,6 +14,11 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+
+  double categoryFontSize = 20, imageWidth = 170, imageHeight = 100;
+  
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +54,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             child: Image.asset(
                               "images/cpu.png",
-                              width: sx(170),
-                              height: sy(100),
+                              width: sx(imageWidth),
+                              height: sy(imageHeight),
                             )
                           ),
                           style: OutlinedButton.styleFrom(
@@ -62,7 +67,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Text(
                           'CPU',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: categoryFontSize, 
                             fontWeight: FontWeight.bold,
                             fontFamily: ArabicFonts.Changa,
                             package: 'google_fonts_arabic',
@@ -85,8 +90,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             child: Image.asset(
                               "images/motherBoard.png",
-                              width: sx(170),
-                              height: sy(100),
+                              width: sx(imageWidth),
+                              height: sy(imageHeight),
                             )
                           ),
                           style: OutlinedButton.styleFrom(
@@ -98,7 +103,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Text(
                           'Mother Board',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: categoryFontSize, 
                             fontWeight: FontWeight.bold,
                             fontFamily: ArabicFonts.Changa,
                             package: 'google_fonts_arabic',
@@ -125,8 +130,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             child: Image.asset(
                               "images/ram.png",
-                              width: sx(170),
-                              height: sy(100),
+                              width: sx(imageWidth),
+                              height: sy(imageHeight),
                             )
                           ),
                           style: OutlinedButton.styleFrom(
@@ -138,7 +143,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Text(
                           'RAM',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: categoryFontSize, 
                             fontWeight: FontWeight.bold,
                             fontFamily: ArabicFonts.Changa,
                             package: 'google_fonts_arabic',
@@ -161,8 +166,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             child: Image.asset(
                               "images/powerSupply.png",
-                              width: sx(170),
-                              height: sy(100),
+                              width: sx(imageWidth),
+                              height: sy(imageHeight),
                             )
                           ),
                           style: OutlinedButton.styleFrom(
@@ -174,7 +179,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Text(
                           'Power Supply',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: categoryFontSize, 
                             fontWeight: FontWeight.bold,
                             fontFamily: ArabicFonts.Changa,
                             package: 'google_fonts_arabic',
@@ -201,8 +206,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             child: Image.asset(
                               "images/computerCase.png",
-                              width: sx(170),
-                              height: sy(100),
+                              width: sx(imageWidth),
+                              height: sy(imageHeight),
                             )
                           ),
                           style: OutlinedButton.styleFrom(
@@ -214,7 +219,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Text(
                           'Computer Case',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: categoryFontSize, 
                             fontWeight: FontWeight.bold,
                             fontFamily: ArabicFonts.Changa,
                             package: 'google_fonts_arabic',
@@ -237,8 +242,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Container(
                             child: Image.asset(
                               "images/ioUnits.png",
-                              width: sx(170),
-                              height: sy(100),
+                              width: sx(imageWidth),
+                              height: sy(imageHeight),
                             )
                           ),
                           style: OutlinedButton.styleFrom(
@@ -250,7 +255,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Text(
                           'I/O Units',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: categoryFontSize, 
                             fontWeight: FontWeight.bold,
                             fontFamily: ArabicFonts.Changa,
                             package: 'google_fonts_arabic',
