@@ -58,7 +58,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                     style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
                     decoration: InputDecoration(
                       icon: IconButton(
-                        icon: Icon(Icons.message),
+                        icon: Icon(Icons.send),
                         color: Color(0xFF00A99D), // Send Icon Color
                         iconSize: 30,
                         onPressed: (){
