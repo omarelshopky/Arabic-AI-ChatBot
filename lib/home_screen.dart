@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:relative_scale/relative_scale.dart';
 import 'package:google_fonts_arabic/fonts.dart';
-import 'chatbot_screen.dart';
-
+import 'category_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key key }) : super(key: key);
 
@@ -47,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ChatBotScreen())
+                    MaterialPageRoute(builder: (context) => CategoryScreen())
                   );
                 },
                 child: Container(
