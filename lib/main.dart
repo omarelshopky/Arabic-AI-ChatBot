@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'home_screen.dart';
-import 'chatbot_screen.dart';
 
 // ignore: slash_for_doc_comments
 /***      Entry Point for the App     ***/

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:relative_scale/relative_scale.dart';
+import 'package:google_fonts_arabic/fonts.dart';
+import 'chatbot_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
@@ -23,27 +25,49 @@ class _HomeScreenState extends State<HomeScreen> {
               stops: [0.0, 1.0],
               tileMode: TileMode.clamp),
         ),
-        child: Align(
-          alignment: Alignment.center,
-          
-          child: RelativeBuilder( 
-            builder: (context, height, width, sy, sx) {
-              return Image.asset(
-                "images/logo.png",
-                width: sx(320),
-                height: sy(320),
-              );
-            }
-          ),
+        child: Column(
+          children: [
+            RelativeBuilder( 
+              builder: (context, height, width, sy, sx) {
+                return Container(
+                  margin: EdgeInsets.only(top: sy(70)),
+                  child: Image.asset(
+                    "images/logo.png",
+                    width: sx(320),
+                    height: sy(320),
+                  )
+                );
+              },
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 40),
+              child: OutlinedButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatBotScreen())
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.only(top: 5, bottom: 5, right: 27, left: 27),
+                  child: Text(
+                    'دخول',
+                    style: TextStyle(
+                      fontFamily: ArabicFonts.Lemonada,
+                      package: 'google_fonts_arabic',
+                      fontSize: 26,
+                    ),
+                  ),
+                ),
+                style: OutlinedButton.styleFrom(
+                  primary: Colors.white,
+                  side: BorderSide(color: Colors.white, width: 2),
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(7))),
+                ),
+              ),
+            )
+          ],
         )
-
-
-
-
-
-
-
-      
     );
   }
 }
