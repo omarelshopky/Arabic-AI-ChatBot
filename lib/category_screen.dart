@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
 import 'package:relative_scale/relative_scale.dart';
 import 'chatbot_screen.dart';
+import 'package:arabic_chatbot/info_screen.dart';
 
 
 class CategoryScreen extends StatefulWidget {
@@ -48,7 +49,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                              MaterialPageRoute(builder: (context) => InfoScreen(selectedCategory: catergory_t.CPU,))
                             );
                           },
                           child: Container(
@@ -84,7 +85,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                              MaterialPageRoute(builder: (context) => InfoScreen(selectedCategory: catergory_t.MOTHER_BOARD,))
                             );
                           },
                           child: Container(
@@ -124,7 +125,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                              MaterialPageRoute(builder: (context) => InfoScreen(selectedCategory: catergory_t.RAM,))
                             );
                           },
                           child: Container(
@@ -160,7 +161,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                              MaterialPageRoute(builder: (context) => InfoScreen(selectedCategory: catergory_t.POWER_SUPPLY))
                             );
                           },
                           child: Container(
@@ -200,8 +201,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                              MaterialPageRoute(builder: (context) => InfoScreen(selectedCategory: catergory_t.COMPUTER_CASE))
                             );
+                            
                           },
                           child: Container(
                             child: Image.asset(
@@ -236,7 +238,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           onPressed: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CategoryScreen())
+                              MaterialPageRoute(builder: (context) => InfoScreen(selectedCategory: catergory_t.IO_UNITS,))
                             );
                           },
                           child: Container(
