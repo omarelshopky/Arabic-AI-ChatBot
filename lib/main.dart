@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       /**** */
       debugShowCheckedModeBanner: false,
       title: "ChatBot",
-      home: ChatBotScreen(),
+      home: HomeScreen(),
     );
   }
 } 
