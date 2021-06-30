@@ -290,7 +290,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         fontWeight: FontWeight.bold,
                         fontFamily: ArabicFonts.El_Messiri,
                         package: 'google_fonts_arabic',
-                      )
+                      ),
+                      elevation: 5
                     ),
                   ),
               )
