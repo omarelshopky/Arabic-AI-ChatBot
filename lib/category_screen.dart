@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
 import 'package:relative_scale/relative_scale.dart';
-
 import 'chatbot_screen.dart';
 
 
@@ -262,7 +261,34 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   )
                 ],
               ),
-              
+              Container(
+                margin: EdgeInsets.only(top: sy(13)),
+                child: 
+                  OutlinedButton(
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ChatBotScreen())
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.only(top: 5, bottom: 5, left: 1, right: 5),
+                      child: Text('ChatBot ' + 'احصل على مساعدة  ')
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Color(0xFF079c92),
+                      side: BorderSide(color: Color(0xFF079c92), width: 0.7),
+                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                      textStyle: TextStyle(
+                        fontSize: 20, 
+                        fontWeight: FontWeight.bold,
+                        fontFamily: ArabicFonts.El_Messiri,
+                        package: 'google_fonts_arabic',
+                      )
+                    ),
+                  ),
+              )
             ],
           );
         },
