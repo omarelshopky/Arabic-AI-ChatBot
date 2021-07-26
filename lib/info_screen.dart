@@ -37,7 +37,9 @@ class _InfoScreenState extends State<InfoScreen> {
           )
         ),
       ),
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
+        padding: EdgeInsets.all(12.0),
         children: buildSlideShowList(widget.data.header, widget.data.info),
       )
     );
@@ -53,6 +55,7 @@ Widget slideShow(String title, String info){
     child: GroovinExpansionTile(
       title: Text(
         title,
+        textAlign: TextAlign.right,
         style: TextStyle(
           fontSize: 16, 
           fontWeight: FontWeight.bold,
@@ -78,14 +81,19 @@ Widget slideShow(String title, String info){
         ],
       ),
       children: [
-        Text(
-          info,
-          style: TextStyle(
-            fontSize: 15, 
-            fontFamily: ArabicFonts.Changa,
-            package: 'google_fonts_arabic',
+        Container(
+          padding: EdgeInsets.only(left: 22, right: 20),
+          child: Text(
+            info,
+            textAlign: TextAlign.right,
+            style: TextStyle(
+              fontSize: 15, 
+              fontFamily: ArabicFonts.Changa,
+              package: 'google_fonts_arabic',
+              
+            ),
           ),
-        )
+        ),
       ],
     ),
   );
